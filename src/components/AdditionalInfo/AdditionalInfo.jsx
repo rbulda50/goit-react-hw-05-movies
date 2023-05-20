@@ -3,11 +3,12 @@ const { Link } = require("react-router-dom")
 const AdditionalInfo = () => {
     return (
         <ul>
+            <p>Additional information</p>
             <li>
-                <Link to="/movies/:movieId/cast">Cast</Link>
+                <Link to="cast">Cast</Link>
             </li>
             <li>
-                <Link to="/movies/:movieId/reviews">Reviews</Link>
+                <Link to="reviews">Reviews</Link>
             </li>
         </ul>
 

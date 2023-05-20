@@ -1,12 +1,14 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { Link, useParams, Outlet } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
+import { Link, useParams, Outlet, useLocation } from "react-router-dom";
 import { getMovieById } from "services/app";
 import AdditionalInfo from '../AdditionalInfo/AdditionalInfo';
 
 const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
+
+    const location = useLocation();
+    const currentLocation = useRef(location);
 
     useEffect(() => {
          async function getMovieDetails() {
@@ -23,12 +25,11 @@ const MovieDetails = () => {
         return null;
     }
 
-
     const genresNames = movie.genres.map((movie) => movie.name).join(' ')
 
     return (
         <div>
-            <Link>Back</Link>
+            <Link to={currentLocation.current.state?.home ?? '/'}>Back</Link>
             <div>
                 <img
                     src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}

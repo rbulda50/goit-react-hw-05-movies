@@ -41,6 +41,6 @@ export const getReviewsById = async (movie_id) => {
             api_key: API_KEY,
         },
     };
-    const response = await axios.get(`/movie/${movie_id}/reviews`, options);
+    const response = await axios.get(`${BASE_URL}/movie/${movie_id}/reviews`, options);
     return response.data.results;
 };
