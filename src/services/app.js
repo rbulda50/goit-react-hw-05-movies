@@ -44,3 +44,14 @@ export const getReviewsById = async (movie_id) => {
     const response = await axios.get(`${BASE_URL}/movie/${movie_id}/reviews`, options);
     return response.data.results;
 };
+
+export const findFilms = async (query) => {
+    const options = {
+        params: {
+            api_key: API_KEY,
+            query,
+        },
+    };
+    const response = await axios.get(`${BASE_URL}/search/movie`, options);
+    return response.data.results;
+};
