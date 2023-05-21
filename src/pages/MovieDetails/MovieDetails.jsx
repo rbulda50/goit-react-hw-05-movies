@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, Suspense } from "react";
 import { Link, useParams, Outlet, useLocation } from "react-router-dom";
 import { getMovieById } from "services/app";
 import AdditionalInfo from "components/AdditionalInfo";
@@ -32,8 +32,12 @@ const MovieDetails = () => {
         <>
             <Link to={currentLocation.current.state?.home ?? '/'}>Back</Link>
             <MovieDesc desc={{genresNames, movie}} />
-            <AdditionalInfo />
-            <Outlet />
+            <div>
+                <AdditionalInfo />
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Outlet />
+                    </Suspense>
+            </div>
         </>
     );
 };
