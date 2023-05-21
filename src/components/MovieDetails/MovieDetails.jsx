@@ -1,12 +1,12 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, useParams, Outlet, useLocation } from "react-router-dom";
 import { getMovieById } from "services/app";
-import AdditionalInfo from '../AdditionalInfo/AdditionalInfo';
+import AdditionalInfo from "components/AdditionalInfo";
+import MovieDesc from "./MovieDesc";
 
 const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
-
     const location = useLocation();
     const currentLocation = useRef(location);
 
@@ -29,22 +29,12 @@ const MovieDetails = () => {
     const genresNames = movie.genres.map((movie) => movie.name).join(' ');
 
     return (
-        <div>
+        <>
             <Link to={currentLocation.current.state?.home ?? '/'}>Back</Link>
-            <div>
-                <img
-                    src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-                    alt={movie.title} />
-                <h2>{movie.title}</h2>
-                <p>User scode: {movie.vote_average}</p>
-                <h2>Overview</h2>
-                <p>{movie.overview}</p>
-                <h2>Genres</h2>
-                <p>{genresNames}</p>
-            </div>
+            <MovieDesc desc={{genresNames, movie}} />
             <AdditionalInfo />
             <Outlet />
-        </div>
+        </>
     );
 };
 

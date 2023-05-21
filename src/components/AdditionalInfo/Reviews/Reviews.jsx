@@ -11,22 +11,21 @@ const Reviews = () => {
             try {
                 const reviews = await getReviewsById(movieId);
                 setReviews(reviews);
-
             } catch (error) {
                 console.log('Error!')
-            }
-        }
-        getReviews()
+            };
+        };
+        getReviews();
     }, [movieId]);
 
     if (!reviews) {
         return null;
     };
 
-    return reviews.length > 0 
+    return reviews.length > 0
         ? (
             <ul>
-                {reviews.map(({id, author, content}) => (
+                {reviews.map(({ id, author, content }) => (
                     <li key={id}>
                         <h3>Author: {author}</h3>
                         <p>{content}</p>
@@ -36,7 +35,7 @@ const Reviews = () => {
         )
         : (<p>
             We don't have any reviews for this movie.
-        </p>)
+        </p>);
 };
 
 export default Reviews;

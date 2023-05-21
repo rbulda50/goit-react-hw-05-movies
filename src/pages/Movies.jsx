@@ -1,7 +1,7 @@
 import { findFilms } from "services/app";
 import { useEffect, useState } from "react";
 import { useLocation, Link, useSearchParams } from "react-router-dom";
-import MovieBar from "components/MovieBar/MovieBar";
+import MovieBar from "components/MovieBar";
 
 const Movies = () => {
     const [value, setValue] = useState('');
@@ -19,7 +19,7 @@ const Movies = () => {
         if (!value && !filter) {
             return;
         }
-        
+
         async function getFilms() {
             try {
                 const listOfFilms = await findFilms(filter ? filter : value);

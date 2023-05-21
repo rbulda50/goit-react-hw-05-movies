@@ -11,8 +11,7 @@ const AdditionalInfo = () => {
                 <Link to="reviews">Reviews</Link>
             </li>
         </ul>
-
-    )
+    );
 };
 
 export default AdditionalInfo;

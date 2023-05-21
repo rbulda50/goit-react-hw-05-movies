@@ -7,7 +7,6 @@ const MovieBar = ({onFormSubmit}) => {
         setValue(e.target.value);
     };
 
-
     const onSubmit = e => {
         e.preventDefault();
 
@@ -15,17 +14,16 @@ const MovieBar = ({onFormSubmit}) => {
         setValue('');
     };
 
-
     return (
         <form onSubmit={onSubmit}>
-        <input
-            onChange={onChange}
-            value={value}
-            placeholder="Search film..."
-            type="text" />
-        <button type="submit">Search</button>
-    </form>
-    )
+            <input
+                onChange={onChange}
+                value={value}
+                placeholder="Search film..."
+                type="text" />
+            <button type="submit">Search</button>
+        </form>
+    );
 };
 
 export default MovieBar;

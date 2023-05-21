@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieCastById } from "services/app";
 
-
 const Cast = () => {
     const [cast, setCast] = useState(null);
     const {movieId} = useParams();
@@ -14,10 +13,10 @@ const Cast = () => {
                 setCast(cast);
             } catch (error) {
                 console.log('Error!')
-            }
-        }
+            };
+        };
         getCast();
-    }, [movieId])
+    }, [movieId]);
 
     if (!cast) {
             return null;
@@ -33,7 +32,7 @@ const Cast = () => {
                 </li>
             ))}
         </ul>
-    )
+    );
 };
 
 export default Cast;
