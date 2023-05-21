@@ -11,21 +11,22 @@ const MovieDetails = () => {
     const currentLocation = useRef(location);
 
     useEffect(() => {
-         async function getMovieDetails() {
-        try {
-            const movie = await getMovieById(movieId);
-            setMovie(movie);
-        } catch (error) {
-            console.log('Error!')
+        async function getMovieDetails() {
+            try {
+                const movie = await getMovieById(movieId);
+                setMovie(movie);
+            } catch (error) {
+                console.log('Error!')
             }
         }
-    getMovieDetails()
-    }, [movieId])
+        getMovieDetails();
+    }, [movieId]);
+
     if (!movie) {
         return null;
-    }
+    };
 
-    const genresNames = movie.genres.map((movie) => movie.name).join(' ')
+    const genresNames = movie.genres.map((movie) => movie.name).join(' ');
 
     return (
         <div>
@@ -44,7 +45,7 @@ const MovieDetails = () => {
             <AdditionalInfo />
             <Outlet />
         </div>
-    )
+    );
 };
 
 export default MovieDetails;

@@ -1,33 +1,35 @@
 import { findFilms } from "services/app";
 import { useEffect, useState } from "react";
-import { useLocation, setSearchParams, Link } from "react-router-dom";
+import { useLocation, Link, useSearchParams } from "react-router-dom";
 import MovieBar from "components/MovieBar/MovieBar";
 
 const Movies = () => {
     const [value, setValue] = useState('');
     const [movies, setMovies] = useState([]);
+    const location = useLocation();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const filter = searchParams.get('value') ?? '';
 
     const onFormSubmit = (value) => {
         setValue(value);
-    }
-        
+        setSearchParams(value !== '' ? {value} : {});
+    };
 
     useEffect(() => {
-        if (!value) {
+        if (!value && !filter) {
             return;
         }
+        
         async function getFilms() {
             try {
-                const listOfFilms = await findFilms(value);
+                const listOfFilms = await findFilms(filter ? filter : value);
                 setMovies(listOfFilms)
             } catch (error) {
                 console.log('Error!')
             }
         }
         getFilms();
-console.log(movies)
-
-    }, [value])
+    }, [value, filter])
 
 
     return (<>
@@ -37,6 +39,7 @@ console.log(movies)
                 <li key={id}>
                     <Link
                         to={`${id}`}
+                        state={{home: location}}
                         >{title}</Link>
                 </li>
             ))}
