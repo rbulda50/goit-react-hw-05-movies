@@ -1,0 +1,12 @@
+.List {
+    list-style: none;
+    padding-top: 50px;
+}
+
+.Item:not(:last-child) {
+    margin-bottom: 50px;
+}
+
+.AuthorName {
+    margin-bottom: 10px;
+}

@@ -2,6 +2,7 @@ import { findFilms } from "services/app";
 import { useEffect, useState } from "react";
 import { useLocation, Link, useSearchParams } from "react-router-dom";
 import MovieBar from "components/MovieBar";
+import css from './Movies.module.css';
 
 const Movies = () => {
     const [value, setValue] = useState('');
@@ -34,10 +35,13 @@ const Movies = () => {
 
     return (<>
         <MovieBar onFormSubmit={onFormSubmit} />
-        <ul>
+        <ul className={css.List}>
             {movies.map(({id, title}) => (
-                <li key={id}>
+                <li
+                    className={css.Item}
+                    key={id}>
                     <Link
+                        className={css.Link}
                         to={`${id}`}
                         state={{home: location}}
                         >{title}</Link>

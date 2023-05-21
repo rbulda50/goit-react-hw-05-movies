@@ -1,0 +1,28 @@
+.List {
+    list-style: none;
+    width: 350px;
+    text-align: center;
+    margin: auto;
+}
+
+.Link {
+    text-decoration: none;
+    color: #000;
+    transition: color 250ms linear;
+}
+
+.Item {
+    transition: scale 250ms linear;
+}
+
+.Link:hover {
+    color: rgb(174, 10, 10);
+}
+
+.Item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.Item:hover {
+    scale: 1.1;
+}

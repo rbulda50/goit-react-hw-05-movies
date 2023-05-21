@@ -1,3 +1,4 @@
+import css from './Cast.module.css';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieCastById } from "services/app";
@@ -21,13 +22,20 @@ const Cast = () => {
     if (!cast) {
             return null;
     };
-    
+
     return (
-        <ul>
+        <ul className={css.CastList}>
             {cast.cast.map(({ id, profile_path, name, character }) => (
-                <li key={id}>
-                    <img src={`https://image.tmdb.org/t/p/w500${profile_path}`} alt={name} />
-                    <p>{name}</p>
+                <li
+                    className={css.ListItem}
+                    key={id}>
+                    <img
+                        className={css.Image}
+                        width={150}
+                        height={200}
+                        src={profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : `https://via.placeholder.com/150x200`}
+                        alt={name} />
+                    <p className={css.Name}>{name}</p>
                     <p>Character: {character}</p>
                 </li>
             ))}

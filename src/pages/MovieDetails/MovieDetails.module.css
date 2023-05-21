@@ -1,0 +1,31 @@
+.BackBtn {
+margin-bottom: 50px;
+display: flex;
+align-items: center;
+cursor: pointer;
+}
+
+.Link {
+    text-decoration: none;
+    font-size: 35px;
+    margin-left: 15px;
+    color: #fff;
+    background-color: #ff6b6b;
+    padding: 5px;
+    border-radius: 15px;
+    border: 2px solid #ad0606;
+    transition: background-color linear 250ms;
+}
+
+.Link:hover {
+    background-color: #ff2a2a;
+}
+
+.DetailsContainer {
+    padding: 50px;
+}
+
+.AdditionalInfo {
+    padding-top: 50px;
+}
+

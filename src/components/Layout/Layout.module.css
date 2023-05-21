@@ -1,0 +1,37 @@
+.Container {
+    padding: 50px;
+}
+
+.Header {
+    border-bottom: 2px solid #800404;
+    padding-bottom: 25px;
+}
+
+.NavList {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.NavItem {
+    padding: 13px;
+    background-color: #ff6b6b;
+    border-radius: 15px;
+    border: 2px solid #ad0606;
+    cursor: pointer;
+    transition: background-color linear 250ms
+}
+
+.NavItem:not(:last-child) {
+    margin-right: 300px;
+}
+
+.NavItem:hover {
+    background-color: #ff2a2a;
+}
+
+.NavLink {
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 32px;
+}

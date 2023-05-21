@@ -1,6 +1,8 @@
 import { getTrendingMovies } from "services/app";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import css from './Home.module.css';
+import headerLogo from '../icons/headerLogo.png';
 
 const Home = () => {
     const [trending, setTrending] = useState([]);
@@ -18,12 +20,19 @@ const Home = () => {
     }, []);
 
     return (
-        <main>
-            <h1>Trending movies</h1>
-            <ul>
+        <main className={css.MainContainer}>
+            
+            <h1 className={css.MainHeader}>
+                <img src={headerLogo} alt="header logo" width={50}/>
+                Trending movies</h1>
+            <ul className={css.MainList}>
                     {trending.map(({ id, title }) => (
-                        <li key={id}>
-                            <NavLink to={`movies/${id}`}>{title}</NavLink>
+                        <li
+                            className={css.MainListItem}
+                            key={id}>
+                            <NavLink
+                                className={css.MainListLink}
+                                to={`movies/${id}`}>{title}</NavLink>
                         </li>
                     ))}
             </ul>

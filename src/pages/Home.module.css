@@ -1,0 +1,44 @@
+.MainContainer {
+    padding-top: 50px;
+    padding-left: 50px;;
+}
+
+.MainHeader {
+    margin-bottom: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.MainList {
+    list-style: none;
+    width: 350px;
+    text-align: center;
+    margin: auto;
+}
+
+.MainListItem {
+    transition: scale 250ms linear;
+}
+
+.MainListItem:hover {
+    scale: 1.1;
+}
+
+.MainListLink:hover {
+    color:rgb(174, 10, 10);
+}
+
+.MainListItem:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.MainListLink {
+    text-decoration: none;
+    color: #000;
+    transition: color 250ms linear;
+}
+
+
+

@@ -1,0 +1,27 @@
+.CastList {
+    list-style: none;
+    padding: 50px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ListItem {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ListItem:not(:last-child) {
+    margin-bottom: 50px;
+}
+
+.Image {
+    width: 150px;
+    height: 200px;
+}
+
+.Name {
+    margin-top: 15px;
+}
